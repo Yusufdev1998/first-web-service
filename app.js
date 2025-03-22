@@ -1,9 +1,11 @@
 import express from "express";
+import cors from "cors";
 const todos = [];
 const app = express();
 const getNextId = () => {
   return Math.max(...todos, 0) + 1;
 };
+app.use(cors());
 app.use(express.json());
 app.get("/", (req, res) => {
   res.send("Bu mening birinchi serverim!");
